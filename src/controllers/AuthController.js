@@ -55,12 +55,18 @@ module.exports = {
 
   async register(req, res) {
     try {
-      const { firstName, lastName, email, password } = req.body;
+      const { firstName, lastName, email, password, password2 } = req.body;
 
-      if (!password) {
+      if (!password || !password2) {
         return res
           .status(400)
-          .json({ message: 'Password is required', success: false });
+          .json({ message: 'Password fields are required', success: false });
+      }
+
+      if (password !== password2) {
+        return res
+          .status(400)
+          .json({ message: 'Passwords must be equal', success: false });
       }
 
       let cryptedPassword = await bcrypt.hash(password, rounds);

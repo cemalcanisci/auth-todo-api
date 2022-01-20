@@ -40,7 +40,6 @@ module.exports = {
 
           return res.json({
             success: true,
-            user: convertUser(user),
             token,
           });
         } else {
@@ -86,6 +85,20 @@ module.exports = {
         statusCode = 409;
       }
       res.status(statusCode).send(errorMessage(error));
+    }
+  },
+
+  async fetch(req, res) {
+    try {
+      return res.send({
+        success: true,
+        user: req.user,
+      });
+    } catch (error) {
+      return res.send(404).json({
+        message: 'User Not Found',
+        success: false,
+      });
     }
   },
 };

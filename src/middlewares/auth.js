@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/auth');
+const { convertUser } = require('../helpers/user');
 
 module.exports = (req, res, next) => {
   if (!req.headers.authorization) {
@@ -15,7 +16,7 @@ module.exports = (req, res, next) => {
           success: false,
         });
       } else {
-        req.user = decoded.user;
+        req.user = convertUser(decoded.user);
         next();
       }
     });

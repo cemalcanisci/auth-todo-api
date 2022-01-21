@@ -35,8 +35,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Priority can minimum 1',
         },
         max: {
-          args: 10,
-          msg: 'Priority can maximum 10',
+          args: 5,
+          msg: 'Priority can maximum 5',
         },
       },
     },

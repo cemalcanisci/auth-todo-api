@@ -1,11 +1,14 @@
 const express = require('express');
 const helmet = require('helmet');
+var cors = require('cors');
 const app = express();
+
 const { User, Group, Todo } = require('./models');
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

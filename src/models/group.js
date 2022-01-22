@@ -1,5 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
   const Group = sequelize.define('Group', {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.TINYINT,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -19,21 +25,10 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'users',
-        key: 'id',
-      },
-    },
   });
 
   Group.associate = function (models) {
-    Group.belongsTo(models.User, { as: 'addedBy', foreignKey: 'userId' });
-    Group.hasMany(models.Todo, {
-      as: 'todos',
-      foreignKey: 'groupId',
-    });
+    Group.belongsTo(models.User, { as: 'user' });
   };
 
   return Group;

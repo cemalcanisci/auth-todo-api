@@ -1,5 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.TINYINT,
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -68,11 +74,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
-
-  User.associate = function (models) {
-    User.hasMany(models.Group, { as: 'groups', foreignKey: 'userId' });
-    User.hasMany(models.Todo, { as: 'todos', foreignKey: 'userId' });
-  };
 
   return User;
 };

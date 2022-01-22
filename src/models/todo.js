@@ -3,6 +3,12 @@ const { ACTIVE, COMPLETED } = STATUS;
 
 module.exports = (sequelize, DataTypes) => {
   const Todo = sequelize.define('Todo', {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.TINYINT,
+    },
     text: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -59,26 +65,11 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'users',
-        key: 'id',
-      },
-    },
-    groupId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'groups',
-        key: 'id',
-      },
-    },
   });
   Todo.associate = function (models) {
-    Todo.belongsTo(models.User, { as: 'addedBy', foreignKey: 'userId' });
+    Todo.belongsTo(models.User, { as: 'user' });
     Todo.belongsTo(models.Group, {
       as: 'group',
-      foreignKey: 'groupId',
       onDelete: 'cascade',
     });
   };

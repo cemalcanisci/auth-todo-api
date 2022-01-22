@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "Aa12345*",
-    "database": "mevn_todo_api",
-    "host": "127.0.0.1",
+    "username": "ksxuzz103vylynny",
+    "password": "on1r6mzj27ba6luk",
+    "database": "wuokw0xxrohvp7wv",
+    "host": "r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "ksxuzz103vylynny",
+    "password": "on1r6mzj27ba6luk",
+    "database": "wuokw0xxrohvp7wv",
+    "host": "r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }

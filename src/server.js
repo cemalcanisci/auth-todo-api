@@ -4,7 +4,11 @@ var cors = require('cors');
 const app = express();
 
 const { User, Group, Todo } = require('./models');
-require('dotenv').config();
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());

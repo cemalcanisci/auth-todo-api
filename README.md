@@ -17,7 +17,7 @@ npm run start
 ```
 docker build -t cemalcanisci/app-todo-api .
 
-docker run -p 127.0.0.1:3000:3000 -d --name todo-api  muratersin/todo-api
+docker run -p 127.0.0.1:3000:3000 -d --name app-todo-api  cemalcanisci/app-todo-api
 ```
 
 ### Environment Variables
